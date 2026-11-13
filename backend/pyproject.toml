@@ -14,6 +14,7 @@ dependencies = [
     "llama-index-embeddings-openai-like>=0.4.0",
     "llama-index-llms-openai-like>=0.8.1",
     "llama-index-vector-stores-lancedb>=0.6.0",
+    "pydantic>=2.14.3",
     "pydantic-settings>=2.16.3",
     "typer>=0.29.1",
 ]
@@ -34,6 +35,7 @@ myrag = "myrag.cli:app"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = ["integration: touches the real filesystem outside tmp_path"]
 
 [tool.ruff]
 target-version = "py314"
@@ -56,3 +58,4 @@ max-complexity = 10
 python_version = "3.14"
 strict = true
 ignore_missing_imports = true
+plugins = ["pydantic.mypy"]
