@@ -1,0 +1,14 @@
+# Downloaded corpus and generated storage
+data/
+backend/storage/
+eval/results/*
+!eval/results/.gitkeep
+
+# Environment
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
