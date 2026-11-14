@@ -150,6 +150,7 @@ Phase 1 metrics are deterministic and don't call the LLM: **hit rate@k** and **m
 | `TOP_K` | `4` | |
 | `LANCEDB_PATH` | `backend/storage/lancedb` | |
 | `CORPUS_DIR` | `data/fastapi-es` | |
+| `DOCS_SRC_DIR` | `data/fastapi-docs_src` | Example code that `{* ... *}` include directives point to |
 
 YAML files for experiment sweeps wait for phase 3.
 

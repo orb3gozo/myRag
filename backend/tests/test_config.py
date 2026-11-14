@@ -19,6 +19,7 @@ SETTING_NAMES = [
     "TOP_K",
     "LANCEDB_PATH",
     "CORPUS_DIR",
+    "DOCS_SRC_DIR",
 ]
 
 
@@ -51,6 +52,7 @@ def test_settings_use_plan_defaults_without_env_file() -> None:
     assert settings.top_k == 4
     assert settings.lancedb_path == REPOSITORY_ROOT / "backend" / "storage" / "lancedb"
     assert settings.corpus_dir == REPOSITORY_ROOT / "data" / "fastapi-es"
+    assert settings.docs_src_dir == REPOSITORY_ROOT / "data" / "fastapi-docs_src"
 
 
 @pytest.mark.parametrize(
