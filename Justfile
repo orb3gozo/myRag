@@ -17,3 +17,7 @@ complexity:
 
 fetch-corpus:
     ./scripts/fetch_corpus.sh
+
+# Rebuilds the logo and banner SVG files in assets/.
+brand:
+    node ../assets/src/build.mjs
