@@ -1479,6 +1479,7 @@ dependencies = [
     { name = "llama-index-embeddings-openai-like" },
     { name = "llama-index-llms-openai-like" },
     { name = "llama-index-vector-stores-lancedb" },
+    { name = "pydantic" },
     { name = "pydantic-settings" },
     { name = "typer" },
 ]
@@ -1499,6 +1500,7 @@ requires-dist = [
     { name = "llama-index-embeddings-openai-like", specifier = ">=0.4.0" },
     { name = "llama-index-llms-openai-like", specifier = ">=0.8.1" },
     { name = "llama-index-vector-stores-lancedb", specifier = ">=0.6.0" },
+    { name = "pydantic", specifier = ">=2.14.3" },
     { name = "pydantic-settings", specifier = ">=2.16.3" },
     { name = "typer", specifier = ">=0.29.1" },
 ]
