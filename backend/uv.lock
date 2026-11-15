@@ -1487,6 +1487,7 @@ dependencies = [
 [package.dev-dependencies]
 dev = [
     { name = "mypy" },
+    { name = "numpy" },
     { name = "pytest" },
     { name = "ruff" },
 ]
@@ -1508,6 +1509,7 @@ requires-dist = [
 [package.metadata.requires-dev]
 dev = [
     { name = "mypy", specifier = ">=2.4.1" },
+    { name = "numpy", specifier = ">=2.5.4" },
     { name = "pytest", specifier = ">=9.2.0" },
     { name = "ruff", specifier = ">=0.17.5" },
 ]
