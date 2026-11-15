@@ -80,9 +80,9 @@ The default model is **Qwen3-1.7B** at Q4 quantisation. It needs about 1.2 GB of
 
 The model must be small and multilingual:
 
-- Preferred: `intfloat/multilingual-e5-small` (384 dimensions, about 118M parameters, 512 tokens at most). fastembed 0.9.1 doesn't ship it, so the project registers it with `TextEmbedding.add_custom_model` from an ONNX export on Hugging Face. It needs a `query: ` prefix on queries and `passage: ` on documents.
-- Fallback built into fastembed: `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` (384 dimensions). It was trained on sequences of about 128 tokens, so it needs smaller chunks.
-- Still to check during implementation: whether the custom e5-small registration works. If it fails, use the fallback and lower `CHUNK_SIZE`.
+- Default: `intfloat/multilingual-e5-small` (384 dimensions, about 118M parameters, 512 tokens at most). fastembed 0.9.1 doesn't ship it, so the project registers it with `TextEmbedding.add_custom_model` from the official repository's fp32 ONNX export (`onnx/model.onnx`, about 470 MB), with mean pooling and normalisation. The registration was checked on the target laptop: it embeds to 384 dimensions with a peak of about 1 GB of RSS.
+- e5 models need a `query: ` prefix on queries and `passage: ` on documents. The factory adds both for any `e5-` or `multilingual-e5-` model, whichever provider serves it, and leaves other models (and the `-instruct` variants, which use a different template) untouched.
+- Fallback built into fastembed: `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` (384 dimensions). It was trained on sequences of about 128 tokens, so it would need smaller chunks.
 
 ### 3.5 Vector store
 
@@ -259,7 +259,7 @@ Phase 2 is done when a question asked in the browser shows tokens as they arrive
 
 | Risk | Mitigation |
 |---|---|
-| fastembed doesn't ship `multilingual-e5-small` | Register it with `add_custom_model` from a Hugging Face ONNX export; otherwise use `paraphrase-multilingual-MiniLM-L12-v2` with smaller chunks |
+| fastembed doesn't ship `multilingual-e5-small` | Resolved: registered with `add_custom_model` from the official ONNX export. `paraphrase-multilingual-MiniLM-L12-v2` with smaller chunks stays as the fallback |
 | Tight RAM with a browser, LM Studio and the backend running | 1.7B model, ONNX embeddings, k = 4 |
 | CPU latency | `/no_think`, SSE streaming, bounded context |
 | The Spanish FastAPI translation is incomplete | Evaluation questions use only pages that exist in Spanish |
