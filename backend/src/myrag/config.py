@@ -49,8 +49,9 @@ class Settings(BaseSettings):
     top_k: int = 4
     lancedb_path: Path = Path("backend/storage/lancedb")
     corpus_dir: Path = Path("data/fastapi-es")
+    docs_src_dir: Path = Path("data/fastapi-docs_src")
 
-    @field_validator("lancedb_path", "corpus_dir", mode="after")
+    @field_validator("lancedb_path", "corpus_dir", "docs_src_dir", mode="after")
     @classmethod
     def _resolve_against_repository_root(cls, path: Path) -> Path:
         return REPOSITORY_ROOT / path
