@@ -14,6 +14,7 @@ dependencies = [
     "llama-index-embeddings-openai-like>=0.4.0",
     "llama-index-llms-openai-like>=0.8.1",
     "llama-index-vector-stores-lancedb>=0.6.0",
+    "pandas>=3.1.1",
     "pydantic>=2.14.3",
     "pydantic-settings>=2.16.3",
     "typer>=0.29.1",
@@ -26,6 +27,7 @@ build-backend = "hatchling.build"
 [dependency-groups]
 dev = [
     "mypy>=2.4.1",
+    "numpy>=2.5.4",
     "pytest>=9.2.0",
     "ruff>=0.17.5",
 ]
